@@ -9,9 +9,11 @@
  * getOdds([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> [11, 35, 601, 777, 999]
  */
 function getOdds(numbers) {
-  // Your code here
+  return numbers.filter(function (number) {
+    return number % 2 === 1;
+  });
 }
-
+console.log(getOdds([2, 4, 3, 7, 9]));
 /**
  * getEvens(numbers):
  * - receives an array of numbers called `numbers`
@@ -23,9 +25,11 @@ function getOdds(numbers) {
  * getEvens([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> [52, 14, 56, 888]
  */
 function getEvens(numbers) {
-  // Your code here
+  return numbers.filter(function (number) {
+    return number % 2 === 0;
+  });
 }
-
+console.log(getEvens([0, 7, 5, 10, 20, 3]));
 /**
  * getDuplicateCount(x, numbers):
  * - receives a number `x`, and an array of numbers called `numbers`
@@ -36,9 +40,20 @@ function getEvens(numbers) {
  * getDuplicateCount(52, [11, 35, 52, 14, 56, 601, 52, 777, 888, 999, 52]) -> 3
  */
 function getDuplicateCount(x, numbers) {
-  // Your code here
+  let count = 0;
+  numbers.forEach(function (number) {
+    if (number === x) {
+      count++;
+    }
+  });
+  return count;
 }
-
+// method2 const duplicates = number.filter(function(number) {
+//return number === x}
+// return duplicates.lenght
+console.log(
+  getDuplicateCount(1, [1, 2, 3, 1, 4, 5, 6, 1, 7, 8, 9, 10, 11, 1, 12, 13])
+);
 /**
  * makeThemDoctors(students):
  * - receives array `students`
@@ -49,7 +64,10 @@ function getDuplicateCount(x, numbers) {
  */
 
 function makeThemDoctors(students) {
-  // Your code here
+  const doctors = students.map(function (student) {
+    return `Dr. ${student}`;
+  });
+  return doctors;
 }
-
+console.log(makeThemDoctors(["Ghadeer"]));
 module.exports = { getOdds, getEvens, getDuplicateCount, makeThemDoctors };
